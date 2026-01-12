@@ -1,3 +1,4 @@
+const PYTHON_API = process.env.PYTHON_API_URL;
 const express = require("express");
 const router = express.Router();
 const Report = require("../models/report.model");
@@ -39,10 +40,8 @@ router.get("/reports", async (req, res) => {
 router.get("/risk-data", async (req, res) => {
   try {
     const reports = await Report.find().lean();
-    const response = await axios.post(
-      "http://127.0.0.1:8000/analyze",
-      reports
-    );
+    const response = await axios.post(`${PYTHON_API}/analyze`, reports);
+
     res.status(200).json(response.data);
   } catch (error) {
     console.error("Analytics error:", error.message);
