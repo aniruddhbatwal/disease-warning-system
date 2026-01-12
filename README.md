@@ -1,183 +1,167 @@
-🧬 Disease Spread Early-Warning System
+# 🧬 Disease Spread Early-Warning System
 
 A real-time, location-based disease outbreak detection platform that collects anonymous symptom reports, analyzes regional trends, and visualizes early warning signals on a live map — before hospitals get overwhelmed.
 
-Think of it as “Google Maps for Disease Spread.”
+> Think of it as **“Google Maps for Disease Spread.”**
 
-🌍 Problem Statement
+---
 
-In many regions, disease outbreaks (viral fever, dengue, flu, food poisoning, COVID-like illnesses) are detected only after hospitals begin to overflow.
+## 🌍 Problem Statement
+
+In many regions, disease outbreaks (viral fever, dengue, flu, food poisoning, COVID-like illnesses) are detected **only after hospitals begin to overflow**.
 
 This delayed detection causes:
+- Rapid community spread
+- Healthcare system overload
+- Unnecessary loss of lives
 
-Rapid community spread
+There is currently **no real-time, community-driven early-warning system** that:
+- Tracks early symptoms
+- Detects abnormal illness clusters
+- Warns people **before** outbreaks escalate
 
-Healthcare system overload
+---
 
-Unnecessary loss of lives
+## 💡 Solution
 
-There is currently no real-time, community-driven early-warning system that:
-
-Tracks early symptoms
-
-Detects abnormal illness clusters
-
-Warns people before outbreaks escalate
-
-💡 Solution
-
-The Disease Spread Early-Warning System enables people to anonymously report symptoms with their location.
+The **Disease Spread Early-Warning System** enables people to **anonymously report symptoms with their location**.
 
 A backend analytics engine continuously:
+- Groups reports by region
+- Compares daily cases against historical baselines
+- Identifies abnormal spikes
+- Classifies areas into **Low / Medium / High risk zones**
 
-Groups reports by region
+Results are visualized on a **live interactive map**, and users in high-risk zones receive early warnings.
 
-Compares daily cases against historical baselines
+---
 
-Identifies abnormal spikes
+## 🚀 Key Features
 
-Classifies areas into Low / Medium / High risk zones
+- 📍 Mandatory geolocation-based symptom reporting  
+- 🧠 Python-powered outbreak detection analytics  
+- 🗺️ Live disease risk map (Low / Medium / High)  
+- ⚠️ Real-time alerts for users in high-risk zones  
+- 🧩 Microservice architecture (Frontend + Backend + Analytics)  
+- 🔐 Anonymous reporting (no personal identity stored)  
 
-Results are visualized on a live interactive map, and users in high-risk zones receive early warnings.
+---
 
-🚀 Key Features
+## 🧱 System Architecture
 
-📍 Mandatory geolocation-based symptom reporting
-
-🧠 Python-powered outbreak detection analytics
-
-🗺️ Live disease risk map (Low / Medium / High)
-
-⚠️ Real-time alerts for users in high-risk zones
-
-🧩 Microservice architecture (Frontend + Backend + Analytics)
-
-🔐 Anonymous reporting (no personal identity stored)
-
-🧱 System Architecture
 React Frontend
-      ↓
+↓
 Node.js + Express Backend
-      ↓
+↓
 MongoDB Atlas
-      ↓
+↓
 Python FastAPI Analytics Engine
-      ↓
+↓
 Risk Data → Frontend Map + Alerts
 
-🛠️ Technology Stack
-Frontend
+yaml
+Copy code
 
-React.js
+---
 
-React Router
+## 🛠️ Technology Stack
 
-Leaflet.js + OpenStreetMap
+### Frontend
+- React.js
+- React Router
+- Leaflet.js + OpenStreetMap
+- Axios
 
-Axios
+### Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
 
-Backend
+### Analytics Engine
+- Python
+- FastAPI
+- Pandas
 
-Node.js
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+- Analytics: Render
+- Database: MongoDB Atlas
 
-Express.js
+---
 
-MongoDB Atlas
+## 📁 Project Structure
 
-Mongoose
-
-Analytics Engine
-
-Python
-
-FastAPI
-
-Pandas
-
-Deployment
-
-Frontend: Vercel
-
-Backend: Render
-
-Analytics: Render
-
-Database: MongoDB Atlas
-
-📁 Project Structure
 disease-warning-system/
-├── frontend/        # React frontend
-├── backend/         # Node.js API server
-├── analytics/       # Python analytics service
+├── frontend/ # React frontend
+├── backend/ # Node.js API server
+├── analytics/ # Python analytics service
 └── README.md
 
-⚙️ How It Works (Step-by-Step)
+markdown
+Copy code
 
-User Reports Symptoms
+---
 
-Selects symptoms
+## ⚙️ How It Works
 
-Grants location access
+1. **User Reports Symptoms**
+   - Selects symptoms
+   - Grants location access
+   - Data is sent anonymously to backend
 
-Data is sent anonymously to backend
+2. **Data Storage**
+   - Reports stored in MongoDB with timestamp & location
 
-Data Storage
+3. **Analytics Processing**
+   - Python service groups data by region
+   - Compares today’s cases vs 7-day average
+   - Flags abnormal spikes
 
-Reports stored in MongoDB with timestamp & location
+4. **Risk Classification**
+   - 🟢 Low Risk
+   - 🟡 Medium Risk
+   - 🔴 High Risk
 
-Analytics Processing
+5. **Visualization & Alerts**
+   - Live map updates automatically
+   - Users in high-risk zones receive warnings
 
-Python service groups data by region
+---
 
-Compares today’s cases vs 7-day average
+## 🧪 Running Locally
 
-Flags abnormal spikes
-
-Risk Classification
-
-🟢 Low Risk
-
-🟡 Medium Risk
-
-🔴 High Risk
-
-Visualization & Alerts
-
-Live map updates automatically
-
-Users in high-risk zones receive warnings
-
-🧪 Running Locally
-1️⃣ Start Analytics Service
+### 1️⃣ Start Analytics Service
+```bash
 cd analytics
 uvicorn main:app --reload --port 8000
-
 2️⃣ Start Backend
+bash
+Copy code
 cd backend
 node server.js
-
 3️⃣ Start Frontend
+bash
+Copy code
 cd frontend
 npm install
 npm start
-
-
 Frontend runs at:
 
+arduino
+Copy code
 http://localhost:3000
-
 🔐 Privacy & Ethics
-
 No user identity is collected
 
 Location is used only for outbreak detection
 
 Data is anonymized and aggregated
 
-System enforces user consent for geolocation
+System enforces explicit user consent for geolocation
 
 🏆 Use Cases
-
 Early outbreak detection for communities
 
 Hospital resource planning
@@ -189,7 +173,6 @@ Government & NGO health response
 Hackathons, research, and startups
 
 🔮 Future Enhancements
-
 Auto-refresh live map
 
 SMS / Email alerts for high-risk zones
@@ -201,17 +184,14 @@ Pincode auto-detection from coordinates
 Machine learning-based trend prediction
 
 👨‍💻 Contributors
+Aniruddh Batwal – Backend, Analytics, System Architecture
 
-Anirudh Batwal – Backend, Analytics, System Architecture
-
-Frontend Contributors – UI & Visualization
+Manisha Bharadwaj – UI & Visualization
 
 📜 License
-
 This project is open-source and available under the MIT License.
 
 ⭐ Final Note
-
 This project demonstrates:
 
 Full-stack engineering
